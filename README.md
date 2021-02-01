@@ -12,7 +12,7 @@ Software tool to model vehicle fuel consumption
 * [Contact](#contact)
 
 ## General info
-The purpose of this project is to build an mini-app to simulate a vehicle fuel consumption, both hourly and specific. The project is intended to make 
+The purpose of this project is to build an mini-app to simulate a vehicle fuel consumption, hourly, per 100 km and specific. The project is intended to make 
 life easier to researchers in the field of Internal Combustion Engine, Hybrid Electric Vehicles and many more.
 
 
