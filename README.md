@@ -17,7 +17,7 @@ life easier to researchers in the field of Internal Combustion Engine, Hybrid El
 
 
 ## Screenshots
-![Example screenshot](.vehicle.jpg)
+![Example screenshot](vehicle.jpg)
 
 ## Technologies
 * Python 3.8.1
