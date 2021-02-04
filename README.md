@@ -8,7 +8,7 @@ Software tool to model vehicle fuel consumption
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
+* [References](#references)
 * [Contact](#contact)
 
 ## General info
