@@ -9,7 +9,7 @@ one must import this file as a module and make use of the functions.
 def engine_speed(v_a, xi_f, xi_g, r_d, s_f, n_max):
     """
     Function to compute engine speed related to vehicle speed.
-    Takes as parameters vehicle speed, in m/s, finale gear ratio,
+    Takes as parameters vehicle speed, in m/s, final gear ratio,
     gearbox ratio, rolling/dynamic radius of the wheel, in m
     and the slip factor.
     Returns engine speed in rpm.
@@ -24,7 +24,7 @@ def engine_speed(v_a, xi_f, xi_g, r_d, s_f, n_max):
         exit()
 
 
-# rolling_resistance calculation (if not given)
+# rolling_resistance calculation (if not provided)
 
 def rolling_res(v_a):
     """
@@ -73,7 +73,7 @@ class Mus:
         else:
             return P_max * ((n_i/n_max) + 0.5 * (n_i/n_max)**2 - 0.5 * (n_i/n_max)**3)
 
-    # mu_n function for continuous generation of mu
+    # mu_n function for continuous generation of muN
 
     def mu_n(n, n_max):
         """
@@ -100,7 +100,7 @@ class Mus:
                 break
      
 
-    # mu_P function for continuous generation of mu
+    # mu_P function for continuous generation of muP
 
     def mu_P(P_i, P_max, engine_tp = 'SIE'):
         """
@@ -322,8 +322,8 @@ def simfc_call(fixs, v_init, xi_g, a, t):
     and in the 'passing_args' explanatory document.
     Returns the specific fuel consumption, in kg/kWh.
     CAVEAT: Vehicle speed is limited by the engine maximum speed and the
-    transsmision overall ratio. Vehicle required power is limited by the
-    maximum engine output for the given engine speed.
+            transsmision overall ratio. Vehicle required power is limited by
+            the maximum engine output for the given engine speed.
     """
     
     # unpacking the fixed variables list into a dict
@@ -338,7 +338,10 @@ def simfc_call(fixs, v_init, xi_g, a, t):
     # vehicle maximum speed
     v_max = (dict_fix['n_max'] * dict_fix['r_d']) / (9.55 * dict_fix['xi_f'] *
             xi_g * dict_fix['s_f'])
-    if v_init >= v_max: v_init = v_max
+    if v_init >= v_max:
+        v_init = v_max
+        print("Initial speed is too high.\n",
+              "It was automatically readjusted to MAX value possible!")
 
     
     # 1) the case of uniform vehicle movement (i.e., a = 0)
@@ -375,7 +378,10 @@ def simfc_call(fixs, v_init, xi_g, a, t):
     else:
         # vehicle actual speed after acceleration a applied during time t
         v = int(v_init + (a * t))
-        if v > v_max: v = v_max
+        if v > v_max:
+            v = v_max
+            print("The vehicle speed is to high.\n",
+                  "It was automatically readjusted to MAX value possible!")
             
         # engine speed at initial vehicle speed
         n_i_init = engine_speed(v_init, dict_fix['xi_f'], xi_g, dict_fix['r_d'],
