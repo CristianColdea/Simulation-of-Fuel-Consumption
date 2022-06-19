@@ -1,7 +1,8 @@
 """
 This is the computation engine for the fuel consumption simulator.
 It is meant to be used as a separate module. In order to use it
-one must import this file as a module and make use of the functions.
+one must import this file as a module and make use of the functions
+and methods.
 """
 
 # engine_speed calculation according to vehicle speed
