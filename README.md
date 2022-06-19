@@ -21,8 +21,6 @@ life easier to researchers in the field of Internal Combustion Engine, Hybrid El
 
 ## Technologies
 * Python 3.8.1
-* Pandas
-* Numpy
 
 ## Setup
 Keep all the files, notebook and scripts, in the same folder.
