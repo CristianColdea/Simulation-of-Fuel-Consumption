@@ -138,16 +138,32 @@ def e_const(eta_t, eta_max, mu_n, mu_P, m_a, c_r, C_d, A_f, v_a, S, ro_a):
     engine output coefficient, engine speed coefficient, vehicle mass, in kg,
     rolling resistance coefficient, aerodynamic drag coefficient, frontal
     area of the vehicle, in squared meters, vehicle constant speed, in m/s
+    distance, distance in m and air density.
+    Returns the required energy, in J/100 km.
+    """
+    eta_pen = eta_max * mu_n * mu_P
+    E1 = 1/(eta_t * eta_max * mu_n * mu_P) * (m_a * 9.81 * c_r + (ro_a/2) * C_d * A_f *
+    v_a**2) * S
+    return E1
+
+#print(e_const(0.91, 0.33, 0.92, 0.81, 1150, 0.009, 0.26, 2.16, 20, 100000, 1.225))
+
+# e_ac - the required energy to overcome resistances during accelerated vehicle movement
+
+def e_ac (eta_t, eta_max, mu_n, mu_P, m_a, c_r, C_d, A_f, v_a, S, ro_a):
+    """
+    Function to compute required energy for constant speed movement.
+    Takes as parameters transmission efficiency, the engine peak efficiency,
+    engine output coefficient, engine speed coefficient, vehicle mass, in kg,
+    rolling resistance coefficient, aerodynamic drag coefficient, frontal
+    area of the vehicle, in squared meters, vehicle constant speed, in m/s
     distance, in m and air density.
     Returns the required energy, in J/100 km.
     """
     eta_pen = eta_max * mu_n * mu_P
     E1 = 1/(eta_t * eta_max * mu_n * mu_P) * (m_a * 9.81 * c_r + (ro_a/2) * C_d * A_f *
-    v_a**2) * 100000
+    v_a**2) * S
     return E1
-
-#print(e_const(0.91, 0.33, 0.92, 0.81, 1150, 0.009, 0.26, 2.16, 20, 100000, 1.225))
-
 
 # required_power - instant power to be delivered by the engine
 
@@ -185,3 +201,58 @@ def fuel_cons(E, Q_f, v_a, P_i, ro_f):
     return (fc_100, fc_hour, fc_s)
 
 #print(fuel_cons(106855704, 34200000, 20, 5.255, 0.74))
+
+"""
+Within this second section the user interaction is going to take place.
+Just for now data needed to a full employment of the calculation engine
+is introduced here together with a complete secquence o functions calls.
+"""
+
+def simfc_call(v_a, xi_f, xi_g, s_f, r_d, n_max,
+               P_max, type='SIE', eta_t, eta_max,
+               m_a, c_r, C_d, A_f, S, ro_a, a, 
+               Q_f=34200000, ro_f=0.74):
+    """
+    The meaning of function parameters is indicated in the following commented
+    out section. The function is going to be inputed with the parameters from
+    intial data at agent level.
+    Returns the specific fuel consumption, in kg/kWh.
+    """
+    # defining the needed variables
+    n_i, mu_n, p_maxn, P_i, mu_P, E_const = (0, 0, 0, 0, 0, 0)
+
+    # engine speed
+    n_i = engine_speed(v_a, xi_f, xi_g, r_d, s_f)
+
+    # mu_n
+    mu_n = mu_n(n_i, n_max)
+
+    # engine maximum power at the given engine speed
+    p_maxn = p_maxn(P_max, n_i, n_max, type)
+
+    # engine instantaneous power
+    P_i = required_power(eta_t, m_a, c_r, C_d, A_f, v_a, a, ro_a)
+
+    # mu_P calculation
+    mu_P = mu_P(P_i, p_maxn, type)
+
+    # energy required to overcome resistances at the given constant speed
+    E_const = sfc.e_const(eta_t, eta_max, mu_n, mu_P, m_a, c_r, C_d, A_f, 
+    v_a, S,ro_a)
+
+    # fuel consumption
+    fuel_cons = sfc.fuel_cons(E_const, Q_f, v_a, P_i, ro_f)
+
+    return(fuel_cons[2])
+
+
+
+"""
+v_a - vehicle speed, xi_f - transmission finale ratio, xi_g - gearbox ratio, s_f - slip factor,
+r_d - wheel rolling radius, n_max - engine maximum speed, P_max - engine maximum output/power,
+type = 'SIE' - engine type, eta_t - transmission overall efficiency, eta_max - engine peak efficiency,
+m_a - vehicle mass, c_r - rolling resistance coefficient, C_d - coefficient of aerodynamic drag (wind coefficient),
+A_f - vehicle frontal area (given), S - distance (100 km) (contrived), ro_a - air density (available),
+a=0 - acceleration, Q_f= 34200000 - gasoline calorific value (available),
+ ro_f = 0.74 - gasoline density (available)
+"""

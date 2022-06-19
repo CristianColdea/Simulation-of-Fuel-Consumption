@@ -1,0 +1,17 @@
+We know that the long term objective of EU leadership is to decarbonize Europe and its economy, 
+but what many researchers see as difficult is the decarbonization of commercial transport sector 
+(and if the emitted carbon is hopefully going to drop below the natural absorption limit one can 
+say that the decarbonization has been achieved). Indeed, with actual battery technologies, 
+to haul 20+ tons of cargo using solely electric power implies a few tons of batteries added to 
+the total vehicle mass (not mentioning anything but the mass). Where I’m hinting is the possibility 
+to see ICEs for commercial vehicles present for many decades to come, in which situation 
+the hybrid technology could appropriately provide the needed torque in order to haul the goods. 
+Now we know that the major difference (in the light of this particular discussion) between 
+cars and trucks lies in the vehicle mass variation. And we also know that often trucks are 
+not always traveling on the roads at full capacity, so the hauled mass (i.e. carried goods) 
+is a variable, which demands different settings at intelligent agent level because, for instance, 
+the way we compute the specific fuel consumption involves the vehicle inertia, correlated with mass.
+For cars we simplified the whole thing by considering the mass always the same, but for trucks this 
+is not valid anymore. So this could constitute another objective selection criteria at the 
+system of objectives level (along with urban/non-urban driving). Please note I’m saying ‘could’ not ‘can’, 
+this is merely an idea right now. Please let me know your thoughts on the topic.

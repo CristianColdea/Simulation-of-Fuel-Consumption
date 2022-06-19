@@ -1,0 +1,10 @@
+	In order to pass the 19 args to the script one must groupe
+in two main categories: 1) 'fixed' values, i.e., not changing from
+one pass to another, for a given engine, and 2) values that change
+with each pass according to actual engine-powertrain conditions.
+In order to make the things easier, i.e., to decrease the call effort
+the first category is to be stored within a list, built once and passed
+with every call.
+	The 'fixed' values are as following (passed exactly in this
+order): transsmision final ratio 'xi_f', sleeping factor 's_f',
+wheel rolling radius 'r_d', engine maximum speed 'n_max',
