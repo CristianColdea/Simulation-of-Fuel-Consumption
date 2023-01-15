@@ -30,7 +30,7 @@ List of features ready and TODOs for future development
 
 To-do list:
 * ~~Get hourly consumption~~
-* Get fuel consumption per 100 km -> Done
+* ~~Get fuel consumption per 100 km~~
 * Get specific fuel consumption -> Done
 * Build additional functions necessary to model the vehicle fuel consumption -> Done
 * Build a lookup mechanism in order to execute once and get the data as many times is necessary -> Done. API style call.
