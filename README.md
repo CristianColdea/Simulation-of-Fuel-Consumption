@@ -23,13 +23,13 @@ life easier to researchers in the field of Internal Combustion Engine, Hybrid El
 * Python 3.8.1
 
 ## Setup
-Keep all the files, notebook and scripts, in the same folder.
+Keep all the files, notebook and scripts/modules, in the same folder.
 
 ## Features
 List of features ready and TODOs for future development
 
 To-do list:
-* Get hourly consumption -> Done
+* ~~Get hourly consumption~~
 * Get fuel consumption per 100 km -> Done
 * Get specific fuel consumption -> Done
 * Build additional functions necessary to model the vehicle fuel consumption -> Done
