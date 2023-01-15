@@ -29,12 +29,12 @@ Keep all the files, notebook and scripts/modules, in the same folder.
 List of features ready and TODOs for future development
 
 To-do list:
-* ~~Get hourly consumption~~
-* ~~Get fuel consumption per 100 km~~
-* ~~Get specific fuel consumption~~
-* ~~Build additional functions necessary to model the vehicle fuel consumption~~
+* ~~Get hourly consumption.~~
+* ~~Get fuel consumption per 100 km.~~
+* ~~Get specific fuel consumption.~~
+* ~~Build additional functions necessary to model the vehicle fuel consumption.~~
 * ~~Build a lookup mechanism in order to execute once and get the data as many times is necessary. API style call.~~
-* Build a minimal documentation.
+* ~~Build a minimal documentation.~~
 
 ## Status
 Project is: _in progress_
