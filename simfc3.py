@@ -381,7 +381,7 @@ def simfc_call(fixs, v_init, xi_g, a, t):
         v = int(v_init + (a * t))
         if v > v_max:
             v = v_max
-            print("The vehicle speed is to high.\n",
+            print("The vehicle speed is too high.\n",
                   "It was automatically readjusted to MAX value possible!")
             
         # engine speed at initial vehicle speed
