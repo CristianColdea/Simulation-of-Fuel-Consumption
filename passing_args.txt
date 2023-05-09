@@ -1,6 +1,6 @@
 	In order to pass the 19 args to the script one must groupe
 in two main categories: 1) 'fixed' values, i.e., not changing from
-one pass to another, for a given engine, and 2) values that change
+one pass to another, for a given engine/vehicle, and 2) values that change
 with each pass according to actual engine-powertrain conditions.
 In order to make the things easier, i.e., to decrease the call effort
 the first category is to be stored within a list, built once and passed
