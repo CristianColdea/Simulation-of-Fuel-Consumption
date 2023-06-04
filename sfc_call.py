@@ -18,7 +18,8 @@ import simfc3 as sfc
 fixs = []
 
 # vehicle speed 
-v_init = 38
+# v_init = 5
+v_init = 1.1
 
 # movement duration in seconds
 t = 20
@@ -108,6 +109,7 @@ if len(fixs) != 15:
     print("The total number of 'fixed' variables is incorrect!\n"
            "There must be 15 'fixed' variables, you collected: ",len(fixs))
     exit()
+
 
 """
 SFC simulator call and results return
