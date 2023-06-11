@@ -18,7 +18,7 @@ import simfc3 as sfc
 fixs = []
 
 # vehicle speed 
-v_init = 5
+v_init = 3
 
 # movement duration in seconds
 t = 20
