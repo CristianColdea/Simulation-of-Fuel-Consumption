@@ -81,7 +81,7 @@ class Mus:
 
     # mu_n function for continuous generation of muN
 
-    def mu_n(n, n_max,n_idle=800):
+    def mu_n(n, n_max, n_idle=800):
         """
         Method to continuously compute mu N fraction required for fuel consumption
         calculation. Takes as parameters the instantaneous engine speed, engine speed
@@ -129,7 +129,12 @@ class Mus:
 
         keys_S = list(PmuS_dict.keys())
         keys_C = list(PmuC_dict.keys())
-    
+
+        # print("Outputs ratio is: ", P_i/P_max)
+        # return fraction if the output is too low
+        if P_i/P_max < 0.1:
+            return 0.56 
+
         if engine_tp == 'SIE':
             for i in range(len(keys_S) - 1):
                 if P_i/P_max >= keys_S[i] and P_i/P_max < keys_S[i+1]:
