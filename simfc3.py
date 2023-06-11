@@ -130,7 +130,7 @@ class Mus:
         keys_S = list(PmuS_dict.keys())
         keys_C = list(PmuC_dict.keys())
 
-        print("Outputs ratio is: ", P_i/P_max)
+        # print("Outputs ratio is: ", P_i/P_max)
         # return fraction if the output is too low
         if P_i/P_max < 0.1:
             return 0.56 
